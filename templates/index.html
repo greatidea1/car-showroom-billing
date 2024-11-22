@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="title">R.B. Cars Payment Entry</h1>
+        <h1 class="title">R.B. Cars Sales Register</h1>
 
         <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -23,8 +23,8 @@
             {% endif %}
         {% endwith %}
 
-        <!-- Form Section -->
-        <form method="POST" action="/">
+        <!-- Form Section with border and shadow -->
+        <form method="POST" action="/" class="payment-form">
             <div class="row">
                 <div class="col">
                     <label for="branch_name">Branch Name</label>
@@ -72,8 +72,9 @@
             <button type="submit">Submit Payment</button>
         </form>
 
-        <div class="calendar-section">
-            <a href="{{ url_for('report') }}">Generate Report</a>
+        <!-- Moved Generate Report link outside the form and aligned it to the right -->
+        <div class="generate-report-section">
+            <a href="{{ url_for('report') }}" class="generate-report">Generate Report</a>
         </div>
     </div>
 </body>

@@ -10,6 +10,11 @@
     <div class="container">
         <h1 class="title">Sales Report</h1>
 
+        <!-- Home Button -->
+        <div class="home-button">
+            <a href="{{ url_for('index') }}" class="home-link">Home</a>
+        </div>
+
         <form method="GET" action="{{ url_for('report') }}">
             <input type="date" name="date" value="{{ date or '' }}" required>
             <button type="submit">Generate Report</button>

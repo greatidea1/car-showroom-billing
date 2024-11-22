@@ -1,4 +1,4 @@
-/* Include your CSS from the provided template */
+/* General Styling */
 html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -13,11 +13,11 @@ html, body {
 h1.title {
     text-align: center;
     font-size: 36px;
-    color: #4CAF50;
+    color: #486eb4;
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #486eb4;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -27,7 +27,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #486eb4;
 }
 
 table {
@@ -56,6 +56,87 @@ th, td {
 }
 
 .flash.success {
-    background-color: #4CAF50;
+    background-color: #486eb4;
     color: white;
+}
+
+/* Styling for Form */
+.payment-form {
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.payment-form:hover {
+    background-color: #f9f9f9;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.col {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.col:last-child {
+    margin-right: 0;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Styled Generate Report Link */
+.generate-report-section {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.generate-report {
+    background-color: #486eb4;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.generate-report:hover {
+    background-color: #486eb4;
+}
+
+/* Home Button */
+.home-button {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.home-link {
+    background-color: #486eb4;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.home-link:hover {
+    background-color: #486eb4;
 }

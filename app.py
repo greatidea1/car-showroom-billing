@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, make_response
 from flask_pymongo import PyMongo
 from datetime import datetime
-import json
+import os
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
@@ -17,7 +17,7 @@ payments_collection = mongo.db.payments
 @app.route("/", methods=["GET", "POST"])
 def index():
     today_date = datetime.today().strftime('%Y-%m-%d')
-    
+
     if request.method == "POST":
         branch_name = request.form.get("branch_name")
         branch_type = request.form.get("branch_type")
@@ -54,6 +54,8 @@ def report():
         return render_template("report.html", payments=payments, total_amount=total_amount, date=date_filter)
     
     return render_template("report.html", total_amount=total_amount)
+
+
 
 # Main entry point to run the app
 if __name__ == "__main__":
