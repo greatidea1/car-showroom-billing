@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Entry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">R.B. Cars Payment Entry</h1>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Form Section -->
+        <form method="POST" action="/">
+            <div class="row">
+                <div class="col">
+                    <label for="branch_name">Branch Name</label>
+                    <input type="text" id="branch_name" name="branch_name" required>
+                </div>
+                <div class="col">
+                    <label for="branch_type">Branch Type</label>
+                    <select name="branch_type" id="branch_type">
+                        <option value="Maruti Suzuki showroom">Maruti Suzuki showroom</option>
+                        <option value="Maruti Truvalue Preused">Maruti Truvalue Preused</option>
+                        <option value="Nexa Showroom">Nexa Showroom</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="product_service_name">Product/Service Name</label>
+                    <input type="text" id="product_service_name" name="product_service_name" required>
+                </div>
+                <div class="col">
+                    <label for="payment_type">Payment Type</label>
+                    <select name="payment_type" id="payment_type">
+                        <option value="UPI">UPI</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Cheque">Cheque</option>
+                        <option value="NEFT/RTGS">NEFT/RTGS</option>
+                        <option value="DD">DD</option>
+                        <option value="Loan">Loan</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="payment_amount">Payment Amount</label>
+                    <input type="text" id="payment_amount" name="payment_amount" required>
+                </div>
+                <div class="col">
+                    <label for="payment_date">Payment Date</label>
+                    <input type="date" id="payment_date" name="payment_date" value="{{ today_date }}" required>
+                </div>
+            </div>
+
+            <button type="submit">Submit Payment</button>
+        </form>
+
+        <div class="calendar-section">
+            <a href="{{ url_for('report') }}">Generate Report</a>
+        </div>
+    </div>
+</body>
+</html>

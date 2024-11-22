@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Sales Report</h1>
+
+        <form method="GET" action="{{ url_for('report') }}">
+            <input type="date" name="date" value="{{ date or '' }}" required>
+            <button type="submit">Generate Report</button>
+        </form>
+
+        {% if date %}
+        <h3>Sales Report for: {{ date }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Branch Name</th>
+                    <th>Product/Service Name</th>
+                    <th>Payment Type</th>
+                    <th>Payment Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payment in payments %}
+                <tr>
+                    <td>{{ payment['branch_name'] }}</td>
+                    <td>{{ payment['product_service_name'] }}</td>
+                    <td>{{ payment['payment_type'] }}</td>
+                    <td>{{ payment['payment_amount'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3>Total Sales: {{ total_amount }}</h3>
+        {% else %}
+            <p>Please select a date to view the report.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
